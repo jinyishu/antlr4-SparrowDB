@@ -34,7 +34,7 @@ public class CreateNode extends PlanNode {
         }
         TupleDesc descriptor = new TupleDesc(types, names);
         try {
-            String datFilePath = "/data/" + dbTable.getName() + "_file.dat";
+            String datFilePath = "/tmp/data/" + dbTable.getName() + "_file.dat";
             File file = new File(datFilePath);
             if (file.exists()){
                 file.delete();

@@ -66,7 +66,7 @@ public class LogicalPlanner {
     }
 
     private PlanNode getWhereNode(PlanNode source, Optional<Expression> where) {
-        if (where.isEmpty()) {
+        if (!where.isPresent()) {
             return source;
         }
         // 当前先只支持一个等于表达式
@@ -76,7 +76,7 @@ public class LogicalPlanner {
     }
 
     private PlanNode getLimitNode(PlanNode source, Optional<String> limit) {
-        if (limit.isEmpty()) {
+        if (!limit.isPresent()) {
             return source;
         }
         return new LimitNode(source, Integer.parseInt(limit.get()));
